@@ -11,8 +11,11 @@
 
 set -u
 
-FASTA_DIR="$WORK/dolphin/fasta"
-OUT_DIR="$WORK/dolphin/saffrontree-out"
-MER_SIZE="20"
+#FASTA_DIR="$WORK/data/dolphin/fasta"
+#OUT_DIR="$WORK/data/dolphin/saffrontree-out"
+
+FASTA_DIR="$WORK/data/mock_communities/fasta"
+OUT_DIR="$WORK/data/mock_communities/saffrontree-out"
+MER_SIZE="21"
 
 ./run.sh -q $FASTA_DIR -o $OUT_DIR -k $MER_SIZE

@@ -16,7 +16,7 @@ function lc() {
 
 set -u
 
-IMG="saffrontree"
+IMG="saffrontree.img"
 OUT_DIR="$PWD/saffrontree-out"
 THREADS=12
 ARGS=""
@@ -58,12 +58,13 @@ if [[ $NUM_FILES -lt 1 ]]; then
     exit 1
 fi
 
-INPUT_FILES=$(cat "$INPUT_FILES" | xargs echo)
+INPUT_FILES=$(cat "$FILES_LIST" | xargs echo)
 
 [[ -d "$OUT_DIR" ]] && rm -rf "$OUT_DIR"
 
 
 echo "ARGS $ARGS"
+echo singularity exec $IMG saffrontree $ARGS $OUT_DIR $INPUT_FILES
 singularity exec $IMG saffrontree $ARGS $OUT_DIR $INPUT_FILES
 
 echo "Done"

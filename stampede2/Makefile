@@ -1,4 +1,4 @@
-APP = fizkin-0.0.2
+APP = saffrontree-0.0.1
 EMAIL = kyclark@email.arizona.edu
 
 clean:
