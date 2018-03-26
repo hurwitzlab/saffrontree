@@ -1,0 +1,12 @@
+BootStrap: docker
+#From: ubuntu:latest
+From: sangerpathogens/saffrontree:latest
+
+%runscript
+    exec saffrontree
+
+%post
+    # Mount points for TACC directories
+    mkdir /home1
+    mkdir /scratch
+    mkdir /work

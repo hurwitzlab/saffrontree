@@ -1,0 +1,65 @@
+{
+    "name": "saffrontree",
+    "version": "0.0.1",
+    "shortDescription": "Fast, reference-free pseudo-phylogenomic trees from reads or contigs",
+    "longDescription": "Quickly build a tree directly from raw reads or from assembled sequences, without the need for a reference sequence or de novo assemblies. SaffronTree takes FASTQ/FASTA files as input and uses a kmer analysis to build a phylogenetic neighbour joining tree in newick format. It works well for small sets of samples (less than 50) but as the algorithm has a complexity of O(N^2), it does not perform well after that point. This is good enough to give you rapid insights into your data in minutes, rather than hours. During outbreak investigations, researchers and epidemiologies often want to quickly rule a sample in or out of an outbreak. MLST does not provide enough granularity to achieve this, since it is based on only 7 house keeping genes. SaffronTree utilises all of the genomic data in the sample to create a visual representation of the clustering of the data. It support NGS data (such as Illumina), 3rd generation data (Pacbio/Nanopore) and assembled sequences (FASTA).",
+    "available": true,
+    "checkpointable": false,
+    "defaultMemoryPerNode": 32,
+    "defaultProcessorsPerNode": 16,
+    "defaultMaxRunTime": "12:00:00",
+    "defaultNodeCount": 1,
+    "defaultQueue": "normal",
+    "deploymentPath": "kyclark/applications/saffrontree-0.0.1/stampede2",
+    "deploymentSystem": "data.iplantcollaborative.org",
+    "executionSystem": "tacc-stampede2-kyclark",
+    "executionType": "HPC",
+    "helpURI": "http://joss.theoj.org/papers/10.21105/joss.00243",
+    "label": "SaffronTree",
+    "parallelism": "SERIAL",
+    "templatePath": "template.sh",
+    "testPath": "test.sh",
+    "modules": [
+        "tacc-singularity"
+    ],
+    "tags": [
+        "pairwise",
+        "comparison",
+        "imicrobe"
+    ],
+    "ontology": [
+        "http://sswapmeet.sswap.info/agave/apps/Application"
+    ],
+    "inputs": [
+        {
+            "id": "QUERY",
+            "value": {
+                "default": "",
+                "order": 0,
+                "validator": "",
+                "required": false,
+                "visible": true,
+                "enquote": false
+            },
+            "semantics": {
+                "ontology": [
+                    "http://sswapmeet.sswap.info/mime/application/X-bam"
+                ],
+                "minCardinality": 1,
+                "maxCardinality": -1,
+                "fileTypes": [
+                    "raw-0"
+                ]
+            },
+            "details": {
+                "description": "",
+                "label": "Directory of FAST(A|Q)(.gz) files to compare",
+                "argument": "-q ",
+                "repeatArgument": true,
+                "showArgument": true
+            }
+        }
+    ],
+    "parameters": [],
+    "outputs": []
+}
