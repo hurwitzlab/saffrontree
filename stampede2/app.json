@@ -60,6 +60,83 @@
             }
         }
     ],
-    "parameters": [],
+    "parameters": [
+        {
+            "id": "KMER_SIZE",
+            "value": {
+                "default": "31",
+                "type": "number",
+                "order": 1,
+                "validator": "",
+                "required": true,
+                "visible": true,
+                "enquote": false
+            },
+            "details": {
+                "description": "It should be an odd number, and a suitable range is between 25-61.",
+                "label": "Kmer size",
+                "argument": "--kmer",
+                "repeatArgument": false,
+                "showArgument": true
+            }
+        },
+        {
+            "id": "MIN_KMERS_THRESHOLD",
+            "value": {
+                "default": "",
+                "type": "number",
+                "order": 2,
+                "validator": "",
+                "required": false,
+                "visible": true,
+                "enquote": false
+            },
+            "details": {
+                "description": "This value lets you set a minimum threshold for the occurance of a kmer with raw reads. You need about 6x depth to detect a variant with reasonable confidence. Setting this too low will allow random noise (from sequencing errors) through and give you lots of false positives. The maximum suggested value is half the estimated depth of coverage for paired ended data (since forward and reverse reads are evaluated independently). If an input file is in FASTA format, this value is set to 1 for that file, as it assumed it is assembled contigs rather than reads.",
+                "label": "Min. Kmers Threshold",
+                "argument": "--min_kmers_threshold",
+                "repeatArgument": false,
+                "showArgument": true
+            }
+        },
+        {
+            "id": "MAX_KMERS_THRESHOLD",
+            "value": {
+                "default": "",
+                "type": "number",
+                "order": 3,
+                "validator": "",
+                "required": false,
+                "visible": true,
+                "enquote": false
+            },
+            "details": {
+                "description": "This value lets you set a maximum threshold for the occurance of a kmer. With KMC, there is a catchall bin for occurances of 255 and greater (so 255 is the maximum value). By default it is set to 254 which excludes this catchall bin for kmers, and thus the long tail of very common kmers. This reduces the false positives. You need to be careful when setting this too low since you could be excluding interesting kmers.",
+                "label": "Max. Kmers Threshold",
+                "argument": "",
+                "repeatArgument": false,
+                "showArgument": true
+            }
+        },
+        {
+            "id": "VERBOSE",
+            "value": {
+                "default": false,
+                "type": "flag",
+                "order": 4,
+                "validator": "",
+                "required": false,
+                "visible": true,
+                "enquote": false
+            },
+            "details": {
+                "description": "By default the output is silent and all intermediate files are deleted as it goes along. Setting this flag allows you output more details of the software as it runs and it keeps the intermediate files.",
+                "label": "Verbose",
+                "argument": "--verbose",
+                "repeatArgument": false,
+                "showArgument": true
+            }
+        }
+    ],
     "outputs": []
 }
