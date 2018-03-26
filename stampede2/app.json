@@ -64,7 +64,7 @@
         {
             "id": "KMER_SIZE",
             "value": {
-                "default": "31",
+                "default": 31,
                 "type": "number",
                 "order": 1,
                 "validator": "",
